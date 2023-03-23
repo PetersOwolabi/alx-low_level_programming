@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 file.c"
+    exit 1
+fi
+
+CFILE=$1
+ASSEMBLY_FILE=${CFILE%.c}.s
+
+gcc -S -masm=intel $CFILE -o $ASSEMBLY_FILE
+
